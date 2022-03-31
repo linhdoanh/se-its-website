@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
     <head>
@@ -78,10 +79,6 @@
                         </nav>
                     </div>
 
-
-
-
-
                 </div>
                 <div class="u-section-row u-section-row-2" id="sec-545f">
                     <div class="u-clearfix u-sheet u-valign-middle u-sheet-2">
@@ -95,12 +92,7 @@
                             <input class="u-search-input" type="search" name="search" value="" placeholder="Search">
                         </form>
                     </div>
-
-
-
-
-
-                </div>
+             </div>
             </div></header>
         <section class="u-clearfix u-valign-middle u-section-1" id="sec-faa0">
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
@@ -108,93 +100,96 @@
                     <div class="u-layout-col">
                         <div class="u-size-30">
                             <div class="u-layout-row">
+                                <c:set var="book" value="${requestScope.BOOK}"/>
+                                <c:forEach var="bookList" items="${book}">
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-1">
                                     <div class="u-container-layout u-container-layout-1">
-                                        <img class="u-image u-image-round u-radius-10 u-image-1" src="assets/images/SWTBook.jpg" alt="" data-image-width="260" data-image-height="325">
+                                        <img class="u-image u-image-round u-radius-10 u-image-1" src="${bookList.image}" alt="" data-image-width="260" data-image-height="325">
                                         <h3 class="u-text u-text-font u-text-1">
-                                            <span style="font-weight: 700; font-size: 1.875rem;"> Software Testing</span>
-                                            <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a href="https://www.amazon.com/s/ref=dp_byline_sr_book_1?ie=UTF8&amp;field-author=Ron+Patton&amp;text=Ron+Patton&amp;sort=relevancerank&amp;search-alias=books" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" target="_blank">Ron Patton</a>&nbsp;(Author)
+                                            <span style="font-weight: 700; font-size: 1.875rem;">
+                                                <a href="${bookList.url}" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-1" target="_blank">${bookList.name}</a>
                                             </span>
+                                            <br>
+                                            <span style="font-size: 1.25rem;">${bookList.author}</span>
                                         </h3>
                                     </div>
                                 </div>
-                                <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                                </c:forEach>
+<!--                                <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-2">
                                     <div class="u-container-layout u-container-layout-2">
-                                        <img class="u-image u-image-round u-radius-10 u-image-2" src="assets/images/swricon.jpg" alt="" data-image-width="408" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-2" src="../assets/images/swricon.jpg" alt="" data-image-width="408" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-2">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Software Requirements
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=nbpCAwAAQBAJ&printsec=frontcover&dq=software+requirements+karl+wiegers&hl=vi&sa=X&redir_esc=y#v=onepage&q=software%20requirements%20karl%20wiegers&f=false" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-2" target="_blank">Software Requirements</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="https://www.amazon.com/Karl-Wiegers/e/B001IGNXQS/ref=dp_byline_cont_book_1" target="_blank">Karl Wiegers</a>&nbsp;&nbsp;(Author),&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="https://www.amazon.com/Joy-Beatty/e/B008CQ9PB4/ref=dp_byline_cont_book_2" target="_blank">Joy Beatty</a>&nbsp;&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Karl Wiegers (Author),&nbsp;Joy Beatty (Author)</span>
                                         </h3>
-                                    </div>
+                                    </div>-->
                                 </div>
-                                <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
-                                    <div class="u-container-layout u-container-layout-3">
-                                        <img class="u-image u-image-round u-radius-10 u-image-3" src="assets/images/CSI.jpg" alt="" data-image-width="388" data-image-height="500">
+<!--                                <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                                    <div class="u-container-layout u-valign-bottom u-container-layout-3">
+                                        <img class="u-image u-image-round u-radius-10 u-image-3" src="../assets/images/CSI.jpg" alt="" data-image-width="388" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-3">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>An Introduction to Software Engineering
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=y7_MoAEACAAJ&dq=an+introduction+of+software+engineering+laurie+william&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-3" target="_blank">An Introduction to Software Engineering</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="https://www.amazon.com/s/ref=dp_byline_sr_ebooks_1?ie=UTF8&amp;field-author=Dr+Laurie+A+Williams&amp;text=Dr+Laurie+A+Williams&amp;sort=relevancerank&amp;search-alias=digital-text" target="_blank">Dr Laurie A Williams</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Dr Laurie A Williams&nbsp;(Author)</span>
                                         </h3>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
-                        <div class="u-size-30">
+<!--                        <div class="u-size-30">
                             <div class="u-layout-row">
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-4">
                                     <div class="u-container-layout u-container-layout-4">
-                                        <img class="u-image u-image-round u-radius-10 u-image-4" src="assets/images/MAE.jpg" alt="" data-image-width="386" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-4" src="../assets/images/MAE.jpg" alt="" data-image-width="386" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-4">
                                             <span style="font-weight: 700; font-size: 1.875rem;">
-                                                <span style="font-weight: 700;"></span>Mathematics for Engineers
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=DgCDDwAAQBAJ&dq=mathematics+for+engineers+anthony+croft&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-4" target="_blank">Mathematics for Engineers</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5" href="https://www.amazon.com/s/ref=dp_byline_sr_ebooks_1?ie=UTF8&amp;field-author=Anthony+Croft&amp;text=Anthony+Croft&amp;sort=relevancerank&amp;search-alias=digital-text" target="_blank">Anthony Croft</a>&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6" href="https://www.amazon.com/s/ref=dp_byline_sr_ebooks_2?ie=UTF8&amp;field-author=Robert+Davison&amp;text=Robert+Davison&amp;sort=relevancerank&amp;search-alias=digital-text" target="_blank">Robert Davison</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Anthony Croft&nbsp;(Author),&nbsp;Robert Davison&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-5">
                                     <div class="u-container-layout u-container-layout-5">
-                                        <img class="u-image u-image-round u-radius-10 u-image-5" src="assets/images/mobileapp.jpg" alt="" data-image-width="404" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-5" src="../assets/images/mobileapp.jpg" alt="" data-image-width="404" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-5">
                                             <span style="font-weight: 700; font-size: 1.875rem;">
-                                                <span style="font-weight: 700;"></span>Programming with Mobile Applications: Android, iOS, and Windows Phone 7
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=ywTTwAEACAAJ&dq=programming+with+mobile+app+thomas&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-5" target="_blank">Programming with Mobile Applications: Android, iOS, and Windows Phone 7</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="https://www.amazon.com/s/ref=dp_byline_sr_book_1?ie=UTF8&amp;field-author=Thomas+J.+Duffy&amp;text=Thomas+J.+Duffy&amp;sort=relevancerank&amp;search-alias=books" target="_blank">Thomas J. Duffy</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Thomas J. Duffy&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-6">
                                     <div class="u-container-layout u-container-layout-6">
-                                        <img class="u-image u-image-round u-radius-10 u-image-6" src="assets/images/architecture.jpg" alt="" data-image-width="500" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-6" src="../assets/images/architecture.jpg" alt="" data-image-width="500" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-6">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Fundamentals of Software Architecture: An Engineering Approach
+                                                <a href="https://books.google.com.vn/books?id=xa7MDwAAQBAJ&printsec=frontcover&dq=fundamental+of+software+architecture&hl=vi&sa=X&redir_esc=y#v=onepage&q=fundamental%20of%20software%20architecture&f=false" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-6" target="_blank"> Fundamentals of Software Architecture: An Engineering Approach</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="https://www.amazon.com/s/ref=dp_byline_sr_audible_1?ie=UTF8&amp;search-alias=audible&amp;field-keywords=Mark+Richards" target="_blank">Mark Richards</a>&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="https://www.amazon.com/s/ref=dp_byline_sr_audible_2?ie=UTF8&amp;search-alias=audible&amp;field-keywords=Neal+Ford" target="_blank">Neal Ford</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Mark Richards&nbsp;(Author),&nbsp;Neal Ford&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
         </section>
-        <section class="u-clearfix u-valign-middle u-section-2" id="carousel_9333">
+<!--        <section class="u-clearfix u-valign-middle u-section-2" id="carousel_9333">
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
                     <div class="u-layout-col">
@@ -202,39 +197,36 @@
                             <div class="u-layout-row">
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-1">
                                     <div class="u-container-layout u-container-layout-1">
-                                        <img class="u-image u-image-round u-radius-10 u-image-1" src="assets/images/CEABook.jpg" alt="" data-image-width="386" data-image-height="499">
+                                        <img class="u-image u-image-round u-radius-10 u-image-1" src="../assets/images/CEABook.jpg" alt="" data-image-width="386" data-image-height="499">
                                         <h3 class="u-text u-text-font u-text-1">
-                                            <span style="font-weight: 700; font-size: 1.875rem;"></span>
-                                            <span style="font-size: 1.875rem; font-weight: 700;">Computer Organization and Architecture</span>
+                                            <a href="https://books.google.com.vn/books?id=BtnKrQEACAAJ&dq=computer%20organization%20and%20architecture%20williams%20stalling&hl=vi&source=gbs_book_other_versions" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-text-hover-custom-color-9 u-btn-1" target="_blank"> Computer Organization and Architecture</a>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://www.amazon.com/William-Stallings/e/B000APXR9Q/ref=dp_byline_cont_book_1" target="_blank">William Stallings</a>&nbsp;&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;William Stallings (Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-2">
                                     <div class="u-container-layout u-container-layout-2">
-                                        <img class="u-image u-image-round u-radius-10 u-image-2" src="assets/images/connecting.jpg" alt="" data-image-width="400" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-2" src="../assets/images/connecting.jpg" alt="" data-image-width="400" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-2">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Connecting with Computer Science
+                                                <a href="https://books.google.com.vn/books?id=EwAKzgEACAAJ&dq=connecting+with+computer+science&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-2" target="_blank"> Connecting with Computer Science</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="https://www.amazon.com/Greg-Anderson/e/B00DVO66X2/ref=dp_byline_cont_ebooks_1" target="_blank">Greg Anderson</a>&nbsp;&nbsp;(Author),&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="https://www.amazon.com/David-Ferro/e/B005ESZAGM/ref=dp_byline_cont_ebooks_2" target="_blank">David Ferro</a>&nbsp;&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="https://www.amazon.com/s/ref=dp_byline_sr_ebooks_3?ie=UTF8&amp;field-author=Robert+Hilton&amp;text=Robert+Hilton&amp;sort=relevancerank&amp;search-alias=digital-text" target="_blank">Robert Hilton</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Greg Anderson (Author),&nbsp;David Ferro (Author),&nbsp;Robert Hilton&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
                                     <div class="u-container-layout u-container-layout-3">
-                                        <img class="u-image u-image-round u-radius-10 u-image-3" src="assets/images/data.jpg" alt="" data-image-width="407" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-3" src="../assets/images/data.jpg" alt="" data-image-width="407" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-3">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Data Structures and Algorithms in Java
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=UqmYAgAAQBAJ&printsec=frontcover&hl=vi#v=onepage&q&f=false" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-3" target="_blank">Data Structures and Algorithms in Java</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5" href="https://www.amazon.com/Michael-T-Goodrich/e/B001ITYBE8/ref=dp_byline_cont_book_1" target="_blank">Michael T. Goodrich</a>&nbsp;&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6" href="https://www.amazon.com/s/ref=dp_byline_sr_book_2?ie=UTF8&amp;field-author=Roberto+Tamassia&amp;text=Roberto+Tamassia&amp;sort=relevancerank&amp;search-alias=books" target="_blank">Roberto Tamassia</a>&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="https://www.amazon.com/s/ref=dp_byline_sr_book_3?ie=UTF8&amp;field-author=Michael+H.+Goldwasser&amp;text=Michael+H.+Goldwasser&amp;sort=relevancerank&amp;search-alias=books" target="_blank">Michael H. Goldwasser</a>&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Michael T. Goodrich&nbsp;&nbsp;(Author),&nbsp;Roberto Tamassia&nbsp;(Author),&nbsp;Michael H. Goldwasser&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
@@ -244,39 +236,39 @@
                             <div class="u-layout-row">
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-4">
                                     <div class="u-container-layout u-container-layout-4">
-                                        <img class="u-image u-image-round u-radius-10 u-image-4" src="assets/images/MAS.jpg" alt="" data-image-width="384" data-image-height="499">
+                                        <img class="u-image u-image-round u-radius-10 u-image-4" src="../assets/images/MAS.jpg" alt="" data-image-width="384" data-image-height="499">
                                         <h3 class="u-text u-text-font u-text-4">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Introduction to Probability, Statistics, and Random Processes
+                                                <a href="https://books.google.com.vn/books?id=3yq_oQEACAAJ&dq=introduction+to+probability,+statistic&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-4" target="_blank"> Introduction to Probability, Statistics, and Random Processes</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="https://www.amazon.com/Hossein-Pishro-Nik/e/B00N41HU9G/ref=dp_byline_cont_book_1" target="_blank">Hossein Pishro-Nik</a>&nbsp;&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Hossein Pishro-Nik (Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-5">
                                     <div class="u-container-layout u-container-layout-5">
-                                        <img class="u-image u-image-round u-radius-10 u-image-5" src="assets/images/MAD.jpg" alt="" data-image-width="400" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-5" src="../assets/images/MAD.jpg" alt="" data-image-width="400" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-5">
                                             <span style="font-size: 1.875rem; font-weight: 700;">
-                                                <span style="font-weight: 700;"></span>Discrete Mathematics with Applications
+                                                <span style="font-weight: 700;"></span>
+                                                <a href="https://books.google.com.vn/books?id=58K6uwEACAAJ&dq=discrete+mathematics+with+application&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-5" target="_blank">Discrete Mathematics with Applications</a>
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal contributorNameID u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="https://www.amazon.com/Susanna-S-Epp/e/B001IGHMF6/ref=dp_byline_cont_book_1" target="_blank">Susanna S. Epp</a>&nbsp;&nbsp;(Author)
-                                            </span>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Susanna S. Epp (Author)</span>
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-6">
                                     <div class="u-container-layout u-container-layout-6">
-                                        <img class="u-image u-image-round u-radius-10 u-image-6" src="assets/images/OSG.jpg" alt="" data-image-width="386" data-image-height="500">
+                                        <img class="u-image u-image-round u-radius-10 u-image-6" src="../assets/images/OSG.jpg" alt="" data-image-width="386" data-image-height="500">
                                         <h3 class="u-text u-text-font u-text-6">
                                             <span style="font-size: 1.875rem; font-weight: 700;"></span>
-                                            <span style="font-weight: 700; font-size: 1.875rem;">Operating Systems Design and Implementation</span>
-                                            <br>
-                                            <span style="font-size: 1.25rem;">by&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="https://www.amazon.com/s/ref=dp_byline_sr_book_1?ie=UTF8&amp;field-author=Andrew+Tanenbaum&amp;text=Andrew+Tanenbaum&amp;sort=relevancerank&amp;search-alias=books" target="_blank">Andrew Tanenbaum</a>&nbsp;(Author),&nbsp;<a class="a-link-normal u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="https://www.amazon.com/s/ref=dp_byline_sr_book_2?ie=UTF8&amp;field-author=Albert+Woodhull&amp;text=Albert+Woodhull&amp;sort=relevancerank&amp;search-alias=books" target="_blank">Albert Woodhull</a>&nbsp;(Author)
+                                            <span style="font-weight: 700; font-size: 1.875rem;">
+                                                <a href="https://books.google.com.vn/books?id=KZ8uAAAAQBAJ&dq=operating+systems+design+and+implementation&hl=vi&sa=X&redir_esc=y" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-1 u-text-black u-text-hover-custom-color-9 u-btn-6" target="_blank">Operating Systems Design and Implementation</a>
                                             </span>
+                                            <br>
+                                            <span style="font-size: 1.25rem;">by&nbsp;Andrew Tanenbaum&nbsp;(Author),&nbsp;Albert Woodhull&nbsp;(Author)</span>
                                         </h3>
                                     </div>
                                 </div>
@@ -285,7 +277,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <footer class="u-align-center u-clearfix u-custom-color-2 u-footer u-footer" id="sec-be4e"><div class="u-clearfix u-sheet u-sheet-1">
                 <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                     <div class="u-layout" style="">

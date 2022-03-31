@@ -272,7 +272,7 @@
                             <div class="u-container-style u-layout-cell u-radius-50 u-shape-round u-size-60 u-white u-layout-cell-1">
                                 <div class="u-container-layout u-container-layout-1">
                                     <h1 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-palette-2-base u-text-1">GIÁO TRÌNH BỘ MÔN</h1>
-                                    <a href="Library.jsp" data-page-id="39758989" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1" title="learn more" target="_blank">more</a>
+                                    <a href="BookServlet" data-page-id="39758989" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1" title="learn more" target="_blank">more</a>
                                 </div>
                             </div>
                         </div>
